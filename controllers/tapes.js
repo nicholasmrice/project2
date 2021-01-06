@@ -1,14 +1,16 @@
 const express = require('express');
-const router = express.Router();
+const tapes = express.Router();
 const Tape = require('../models/tapes.js');
 
-router.put('/:id', (req, res) => {
-  Tape.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updateModel) => {
+//UPDATE
+tapes.put('/:id', (req, res) => {
+  Tape.findByIdAndUpdate(req.params.id, req.body, { new:true }, (error, updatedModel) => {
    res.redirect('/tapes');
   })
 })
 
-router.get('/:/edit', (req, res) => {
+//EDIT
+tapes.get('/:id/edit', (req, res) => {
   Tape.findById(req.params.id, (error, foundTape) => {
     res.render(
       'edit.ejs',
@@ -19,25 +21,27 @@ router.get('/:/edit', (req, res) => {
   })
 })
 
-router.get('/seed', (req, res) => {
-  Tape.create(
-    [
-      {
-        name: 'Goodfellas OST',
-        year: '1990',
-        coverImg: 'https://imgur.com/qTUA2fg',
-        cassetteImg: 'https://imgur.com/xeLYhQE'
-      }
-    ],
-    (error, data) => {
-      res.redirect('/tapes')
-    }
-  )
-});
+// SEED ROUTE
+// tapes.get('/seed', (req, res) => {
+//   Tape.create(
+//     [
+//       {
+//         name: 'Goodfellas OST',
+//         year: '1990',
+//         coverImg: 'https://imgur.com/qTUA2fg',
+//         cassetteImg: 'https://imgur.com/xeLYhQE'
+//       }
+//     ],
+//     (error, data) => {
+//       res.redirect('/tapes')
+//     }
+//   )
+// });
 
-router.get('/', (req, res) => {
+//INDEX
+tapes.get('/', (req, res) => {
   Tape.find({}, (error, allTapes) => {
-    res.render(
+  res.render(
       'index.ejs',
        {
          tapes: allTapes
@@ -46,17 +50,20 @@ router.get('/', (req, res) => {
   })
 })
 
-router.get('/new', (req, res) => {
+//NEW
+tapes.get('/new', (req, res) => {
   res.render('new.ejs');
 });
 
-router.post('/', (req, res) => {
+//CREATE
+tapes.post('/', (req, res) => {
   Tape.create(req.body, (error, createdTape) => {
     res.redirect('/tapes');
   })
 });
 
-router.get('/:id', (req, res) => {
+//SHOW
+tapes.get('/:id', (req, res) => {
   Tape.findById(req.params.id, (error, foundTape) => {
     res.render(
       'show.ejs',
@@ -67,10 +74,11 @@ router.get('/:id', (req, res) => {
   })
 });
 
-router.delete('/:id', (req, res) => {
-  Tape.findByIdAndRemove(req.params,id, (error, data) => {
+//DELETE
+tapes.delete('/:id', (req, res) => {
+  Tape.findByIdAndRemove(req.params,id, (error, deletedTape) => {
     res.redirect('/tapes');
   })
 })
 
-module.exports = router;
+module.exports = tapes;

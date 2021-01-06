@@ -7,6 +7,8 @@ require('dotenv').config()
 
 const PORT = process.env.PORT || 3000
 
+//const PORT = 3000
+
 const MONGODB_URI = process.env.MONGODB_URI
 
  mongoose.connect(MONGODB_URI, {
@@ -23,9 +25,13 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(methodOverride('_method'))
-app.get('/', (req, res) => {
-  res.send('Hello World')
-})
+// app.get('/', (req, res) => {
+//   res.send('Hello World')
+// })
+
+// const tapesController = require('./controllers/tapes.js');
+// app.use('/tapes', tapesController)
+
 app.listen(PORT, () => {
   console.log('Listening on port: ', PORT)
 })
