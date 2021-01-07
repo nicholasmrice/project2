@@ -158,7 +158,7 @@ router.get('/new', (req, res) => {
 });
 
 //CREATE
-router.post('/new', (req, res) => {
+router.post('/', (req, res) => {
   Tape.create(req.body, (error, createdTape) => {
     res.redirect('/');
   })

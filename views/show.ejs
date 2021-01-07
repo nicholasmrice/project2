@@ -11,15 +11,23 @@
     <h1>Cassette Info</h1>
     <ul>
       <li>
-        Artist: <%= tape.artist %>
+        Artist: <%=tape.artist%>
         <br>
       </li>
       <li>
-        Title: <%= tape.title %>
+        Title: <%=tape.title%>
         <br>
         </li>
         <li>
-        Year: <%= tape.year %>
+        Year: <%=tape.year%>
+      </li>
+      <br>
+      <li>
+       <img src="<%= tape.coverImg %>" />
+      </li>
+      <br>
+      <li>
+        <img src="<%= tape.cassetteImg %>" />
       </li>
     </ul>
     <br>
