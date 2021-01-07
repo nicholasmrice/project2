@@ -2,12 +2,16 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
     <title></title>
   </head>
   <body>
     <h1>New Tape</h1>
-    <form action="/tapes" method="POST">
-      Name: <input type="text" name="name" value="<%=tape.name%>"><br/>
+    <form action="/new" method="POST">
+      Artist: <input type="text" name="artist" value="<%=tape.artist%>"><br/>
+      Title: <input type="text" name="title" value="<%=tape.title%>"><br/>
       Year: <input type="text" name="year" value="<%=tape.year%>"><br/>
       coverImg: <input type="text" name="coverImg" value="<%=tape.coverImg%>"><br/>
       cassetteImg: <input type="text" name="cassetteImg" value="<%=tape.cassetteImg%>"><br/>

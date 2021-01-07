@@ -2,15 +2,34 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
     <title></title>
   </head>
   <body>
-    <h1>Tapes show page</h1>
-    The <%=tape.name; %> is from <%=tape.year; %>
-    <%=tape.coverImg; %>
-    <%=tape.cassetteImg; %>
-    <nav>
-      <a href="/tapes">Back to Tapes Index</a>
-    </nav>
+    <h1>Cassette Info</h1>
+    <ul>
+      <li>
+        Artist: <%= tape.artist %>
+        <br>
+      </li>
+      <li>
+        Title: <%= tape.title %>
+        <br>
+        </li>
+        <li>
+        Year: <%= tape.year %>
+      </li>
+    </ul>
+    <br>
+    <button type="button" name="button"><a href="/:id<%=tape._id%>/edit">Edit</a></button>
+    <br>
+    <form action="/:id/<%=tape._id%>?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE"/>
+    </form>
+    <button type="button" name="button">
+        <a href="/">Back</a>
+    </button>
   </body>
 </html>
