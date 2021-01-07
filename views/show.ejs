@@ -31,9 +31,9 @@
       </li>
     </ul>
     <br>
-    <button type="button" name="button"><a href="/:id<%=tape._id%>/edit">Edit</a></button>
+    <button type="button" name="button"><a href="/<%=tape._id%>/edit">Edit</a></button>
     <br>
-    <form action="/:id/<%=tape._id%>?_method=DELETE" method="POST">
+    <form action="/<%=tape._id%>?_method=DELETE" method="POST">
         <input type="submit" value="DELETE"/>
     </form>
     <button type="button" name="button">

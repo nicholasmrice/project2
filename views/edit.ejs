@@ -9,13 +9,23 @@
   </head>
   <body>
     <h1>Edit Tape Page</h1>
-    <form action="/tapes/<%=tape.id%>?_method=PUT" method="POST">
-      Artist: <input type="text" name="artist" value="<%=tape.artist%>"><br/>
-      Title: <input type="text" name="title" value="<%=tape.title%>"><br/>
-      Year: <input type="text" name="year" value="<%=tape.year%>"><br/>
-      coverImg: <input type="text" name="coverImg" value="<%=tape.coverImg%>"><br/>
-      cassetteImg: <input type="text" name="cassetteImg" value="<%=tape.cassetteImg%>"><br/>
-      <input type="submit" value="Submit Changes">
+    <form action="/<%=tape.id%>?_method=PUT" method="POST">
+          <label for="artist">Artist:</label>
+          <input type="text" name="artist" value="<%=tape.artist%>" />
+          <label for="title">Title:</label>
+          <input type="text" name="title" value="<%=tape.title%>" />
+          <label for="year">Year:</label>
+          <input type="text" name="year" value="<%=tape.year%>" />
+          <label for="coverImg">coverImg:</label>
+          <input type="text" name="coverImg" value="<%=tape.coverImg%>" />
+          <label for="cassetteImg">coverImg:</label>
+          <input type="text" name="cassetteImg" value="<%=tape.cassetteImg%>" />
+          <br>
+        <input type="submit" value="Submit">
+      <form>
+       <button type="button" name="button">
+        <a href="/">Back</a>
+       </button>
     </form>
   </body>
 </html>

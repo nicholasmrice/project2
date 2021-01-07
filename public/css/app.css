@@ -2,4 +2,9 @@ body {
   background-color: gold;
   font-family: 'Permanent Marker';
   display: block;
+  }
+
+li>img{
+  height: 20%;
+  width: 20%;
 }
